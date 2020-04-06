@@ -29,7 +29,7 @@ function init_game() {
 
 	document.body.addEventListener("touchstart", ekey_down);
 	document.body.addEventListener("touchstart", game_restart);
-	document.body.addEventListener("touchend", ekey_up);
+	document.body.addEventListener("touchstart", ekey_up);
 
 	game_scrolling();
 }
@@ -64,7 +64,8 @@ function game_scrolling() {
 
 	context.fillStyle = "#545659";
 	context.font = "20px Roboto Mono";
-	font_len = context.measureText("Score: " + GAME_POSITION).width
+	
+	font_len = context.measureText("Score: " + GAME_POSITION).width;
 	context.fillText("Score: " + (GAME_POSITION - GAME_WIDTH), canvas.width - font_len - 20, 40);
 
 	if (game_over) {
@@ -97,7 +98,7 @@ function game_restart(event) {
 		obstacles = [];
 		clouds = [];
 		game_floor_tiles = [];
-		GAME_POSITION = 0;
+		GAME_POSITION = 840;
 		prev_tile_num = 0;
 		game_over = false;
 		init_game();
