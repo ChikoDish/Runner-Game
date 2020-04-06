@@ -27,9 +27,9 @@ function init_game() {
 	document.body.addEventListener("keydown", game_restart);
 	document.body.addEventListener("keyup", ekey_up);
 
-	document.body.addEventListener("touchstart", ekey_down);
-	document.body.addEventListener("touchstart", game_restart);
-	document.body.addEventListener("touchstart", ekey_up);
+	document.body.addEventListener("touchend", ekey_down);
+	document.body.addEventListener("touchend", game_restart);
+	document.body.addEventListener("touchend", ekey_up);
 
 	game_scrolling();
 }
