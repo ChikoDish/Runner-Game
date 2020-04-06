@@ -21,7 +21,7 @@ function Player() {
 
 	this.update = function() {
 		this.input_handler();
-		this.x = GAME_POSITION + 150;
+		this.x = GAME_POSITION + 250;
 		/* decay vertical acceleration and apply to y position */
 		this.acceleration.y -= 1;
 		this.y -= this.acceleration.y;
