@@ -95,6 +95,7 @@ function game_scrolling() {
 
 function game_restart(event) {
 	if (((event.keyCode == 32) && (game_over)) || ((event.keyCode == undefined) && (game_over))) {
+		alert(1)
 		obstacles = [];
 		clouds = [];
 		game_floor_tiles = [];
