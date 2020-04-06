@@ -1,4 +1,4 @@
 # Runner Game
 >
 
-So far: https://eternalcode.github.io/T-rex-game/
+So far: https://chikodish.github.io/Runner-Game/
