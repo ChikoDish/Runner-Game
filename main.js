@@ -94,7 +94,7 @@ function game_scrolling() {
 
 
 function game_restart(event) {
-	if ((event.keyCode == 32) && (game_over)) {
+	if (((event.keyCode == 32) && (game_over)) || ((event.keyCode == undefined) && (game_over))) {
 		obstacles = [];
 		clouds = [];
 		game_floor_tiles = [];
@@ -107,6 +107,8 @@ function game_restart(event) {
 }
 
 function hit32(event){
-	alert(event.keyCode)
+	if(event.keyCode == undefined){
+
+	}
 }
 
