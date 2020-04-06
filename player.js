@@ -1,7 +1,7 @@
 var player_standing = new Image();
 player_standing.src = "imgs/output-onlinepngtools (1).png"
 var player_duck = new Image();
-player_duck.src = "imgs/trex_duck_55_27.png"
+player_duck.src = "imgs/lean.png"
 
 function Player() {
 	this.x_size = 40;
