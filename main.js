@@ -6,7 +6,7 @@ var prev_tile_num = 0;
 var trex;
 var game_over = false;
 var high_score = 0;
-
+var charCode = 0;
 $(document).ready( function() {
 	init_game();
 });
@@ -28,7 +28,7 @@ function init_game() {
 	document.body.addEventListener("keyup", ekey_up);
 
 	document.body.addEventListener("touchstart", hit32);
-	document.body.addEventListener("touchstart", game_restart);
+	document.body.addEventListener("touchstart", game_trestart);
 	document.body.addEventListener("touchend", ekey_up);
 
 	game_scrolling();
@@ -106,9 +106,20 @@ function game_restart(event) {
 	}
 }
 
-function hit32(event){
-	if(event.keyCode == undefined){
+function game_trestart(event) {
+	if ((charCode == 32) && (game_over)) {
+		obstacles = [];
+		clouds = [];
+		game_floor_tiles = [];
+		GAME_POSITION = 840;
+		prev_tile_num = 0;
+		game_over = false;
+		init_game();
 		
 	}
+}
+
+function hit32(event){
+	charCode = 32;
 }
 
