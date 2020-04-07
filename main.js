@@ -69,19 +69,19 @@ function game_scrolling() {
 	font_len = context.measureText("Score: " + GAME_POSITION).width;
 	GAME_SCORE = 840 + GAME_POSITION - GAME_WIDTH;
 	if (GAME_SCORE >= 3000 && GAME_SCORE < 5999) {
-		SCROLL_SPEED = 10;
+		SCROLL_SPEED = 8;
 	}
 	else if (GAME_SCORE >= 6000 && GAME_SCORE < 8499) {
-		SCROLL_SPEED = 12;
+		SCROLL_SPEED = 10;
 	}
 	else if (GAME_SCORE >= 8500 && GAME_SCORE < 10799) {
-		SCROLL_SPEED = 14;
+		SCROLL_SPEED = 11;
 	}
 	else if (GAME_SCORE >= 10800 && GAME_SCORE < 12499) {
-		SCROLL_SPEED = 16;
+		SCROLL_SPEED = 12;
 	}
 	else if (GAME_SCORE >= 12500) {
-		SCROLL_SPEED = 19;
+		SCROLL_SPEED = 14;
 	}
 	context.fillText("Score: " + GAME_SCORE, canvas.width - font_len - 20, 40);
 	
