@@ -98,7 +98,7 @@ function game_restart(event) {
 		obstacles = [];
 		clouds = [];
 		game_floor_tiles = [];
-		GAME_POSITION = 840;
+		GAME_POSITION = 0;
 		prev_tile_num = 0;
 		game_over = false;
 		init_game();
@@ -111,11 +111,10 @@ function game_trestart(event) {
 		obstacles = [];
 		clouds = [];
 		game_floor_tiles = [];
-		GAME_POSITION = 840;
+		GAME_POSITION = 0;
 		prev_tile_num = 0;
 		game_over = false;
 		init_game();
-		
 	}
 }
 
