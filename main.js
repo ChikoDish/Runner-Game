@@ -7,7 +7,8 @@ var trex;
 var game_over = false;
 var high_score = 0;
 var charCode = 0;
-$(document).ready( function() {
+var GAME_SCORE = 0;
+$(document).ready(function () {
 	init_game();
 });
 
@@ -34,12 +35,12 @@ function init_game() {
 	game_scrolling();
 }
 
-	
+
 function game_scrolling() {
 	var canvas = document.getElementById("trex_game");
 	var context = canvas.getContext("2d");
 	GAME_POSITION += SCROLL_SPEED;
-	
+
 	context.clearRect(0, 0, canvas.width, canvas.height);
 	context.fillStyle = "#D5F5E3";
 	context.fillRect(0, 0, canvas.width, canvas.height);
@@ -64,29 +65,46 @@ function game_scrolling() {
 
 	context.fillStyle = "#545659";
 	context.font = "20px Roboto Mono";
-	
-	font_len = context.measureText("Score: " + GAME_POSITION).width;
-	context.fillText("Score: " + (GAME_POSITION - GAME_WIDTH), canvas.width - font_len - 20, 40);
 
+	font_len = context.measureText("Score: " + GAME_POSITION).width;
+	GAME_SCORE = 840 + GAME_POSITION - GAME_WIDTH;
+	if (GAME_SCORE >= 3000 && GAME_SCORE < 5999) {
+		SCROLL_SPEED = 10;
+	}
+	else if (GAME_SCORE >= 6000 && GAME_SCORE < 8499) {
+		SCROLL_SPEED = 12;
+	}
+	else if (GAME_SCORE >= 8500 && GAME_SCORE < 10799) {
+		SCROLL_SPEED = 14;
+	}
+	else if (GAME_SCORE >= 10800 && GAME_SCORE < 12499) {
+		SCROLL_SPEED = 16;
+	}
+	else if (GAME_SCORE >= 12500) {
+		SCROLL_SPEED = 19;
+	}
+	context.fillText("Score: " + GAME_SCORE, canvas.width - font_len - 20, 40);
+	
 	if (game_over) {
-		if ((GAME_POSITION - GAME_WIDTH) > high_score) {
-			high_score = GAME_POSITION - GAME_WIDTH;
+		if (GAME_SCORE > high_score) {
+			SCROLL_SPEED = 7;
+			high_score = GAME_SCORE;
 		}
 		// text score draw
 		context.fillStyle = "#545659";
 		context.font = "50px Roboto Mono";
 		var font_len = context.measureText("Game Over!").width
-		context.fillText("Game Over!", canvas.width/2 - (font_len / 2), 90);
+		context.fillText("Game Over!", canvas.width / 2 - (font_len / 2), 90);
 
 		context.fillStyle = "#545659";
 		context.font = "20px Roboto Mono";
 		font_len = context.measureText("HighScore: " + high_score).width
-		context.fillText("HighScore: " + high_score, canvas.width/2 - (font_len / 2), 180);
+		context.fillText("HighScore: " + high_score, canvas.width / 2 - (font_len / 2), 180);
 
 		context.fillStyle = "#545659";
 		context.font = "25px Roboto Mono";
 		font_len = context.measureText("SPACE to restart").width
-		context.fillText("SPACE to restart", canvas.width/2 - (font_len / 2), 240);
+		context.fillText("SPACE to restart", canvas.width / 2 - (font_len / 2), 240);
 	} else {
 		requestAnimationFrame(game_scrolling);
 	}
@@ -102,7 +120,7 @@ function game_restart(event) {
 		prev_tile_num = 0;
 		game_over = false;
 		init_game();
-		
+
 	}
 }
 
@@ -113,12 +131,12 @@ function game_trestart(event) {
 		game_floor_tiles = [];
 		GAME_POSITION = 0;
 		prev_tile_num = 0;
+		GAME_SCORE = 0;
 		game_over = false;
 		init_game();
 	}
 }
 
-function hit32(event){
+function hit32(event) {
 	charCode = 32;
 }
-
