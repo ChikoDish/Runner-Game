@@ -80,8 +80,11 @@ function game_scrolling() {
 	else if (GAME_SCORE >= 10800 && GAME_SCORE < 12499) {
 		SCROLL_SPEED = 12;
 	}
-	else if (GAME_SCORE >= 12500) {
+	else if (GAME_SCORE >= 12500 && GAME_SCORE < 15499) {
 		SCROLL_SPEED = 14;
+	}
+	else if(GAME_SCORE >= 15500){
+		SCROLL_SPEED = 20;
 	}
 	context.fillText("Score: " + GAME_SCORE, canvas.width - font_len - 20, 40);
 	
